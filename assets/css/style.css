@@ -83,7 +83,7 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  background: rgba(42, 44, 57, 0.9);
+  background: url('assets/img/team/nav.webp') center/cover no-repeat rgba(42, 44, 57, 0.9); /* Ruta a tu imagen de fondo */
 }
 
 #header.header-transparent {
@@ -91,7 +91,7 @@ h6 {
 }
 
 #header.header-scrolled {
-  background: rgba(42, 44, 57, 0.9);
+  background: url('assets/img/team/nav.webp') center/cover no-repeat rgba(3, 13, 80, 0.9); /* Ruta a tu imagen de fondo */
 }
 
 #header .logo h1 {
@@ -345,9 +345,65 @@ h6 {
   width: 100%;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(0deg, rgb(42, 44, 57) 0%, rgb(51, 54, 74) 100%);
   padding: 0;
 }
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Asegúrate de que el video esté detrás del contenido */
+}
+
+.iframe-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.iframe-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 70, 104);
+  background: linear-gradient(0deg, rgba(0, 70, 104, 1) 0%, rgba(0, 70, 104, 0.5) 50%, rgba(0, 70, 104, 0) 100%);
+  z-index: 2;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 145%; /* Aumentar el ancho para hacer el video más grande */
+  height: 145%; /* Aumentar la altura para hacer el video más grande */
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Deshabilita la interacción con el iframe */
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .iframe-container iframe {
+
+    height: 100vh; /* Alto 100% de la ventana */
+    position: fixed; /* Para que el video ocupe toda la pantalla */
+    top: 5; /* Desde la parte superior */
+    left: 2; /* Desde la parte izquierda */
+    z-index: -1; /* Detrás del contenido */
+  
+  }
+}
+
+
+
 
 #hero .carousel-container {
   display: flex;
@@ -410,16 +466,6 @@ h6 {
   text-decoration: none;
 }
 
-@media (min-width: 1024px) {
-  #hero p {
-    width: 60%;
-  }
-
-  #hero .carousel-control-prev,
-  #hero .carousel-control-next {
-    width: 5%;
-  }
-}
 
 @media (max-width: 768px) {
   #hero .carousel-container {
@@ -437,6 +483,7 @@ h6 {
   height: 60px;
   position: relative;
 }
+
 
 .wave1 use {
   animation: move-forever1 10s linear infinite;
