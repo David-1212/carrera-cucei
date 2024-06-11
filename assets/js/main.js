@@ -252,3 +252,25 @@
   });
 
 })()
+
+
+  /**
+   * Animacion de la playera de carrera
+   */
+  function toggleImage() {
+    var frontImage = document.getElementById('front-image');
+    var backImage = document.getElementById('back-image');
+    
+    if (frontImage.classList.contains('hidden')) {
+      frontImage.classList.remove('hidden');
+      backImage.classList.add('hidden');
+    } else {
+      frontImage.classList.add('hidden');
+      backImage.classList.remove('hidden');
+    }
+  }
+  
+/**
+   *  Fin de animación de la playera de carrera
+*/
+
